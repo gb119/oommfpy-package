@@ -1,0 +1,57 @@
+{% set name = "oommfpy" %}
+{% set version = "1.3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: fd338dd807097649b032ae3fb050f933bdbe5a04621be8fdfd2ae3083494e837
+
+build:
+  number: 1
+  entry_points:
+    - omf2vtk = oommfpy.tools.omf2vtk:omf2vtk_cli
+    - plot_omf = oommfpy.tools.plot_slices:plot_omf_slices_cli
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - click >=7.1,<8.0
+    - cython >=0.29.23,<0.30.0
+    - matplotlib >=3.3.4,<4.0.0
+    - numpy >=1.20.3,<2.0.0
+    - pip
+    - python
+    - scipy >=1.6.3,<2.0.0
+    - poetry
+  run:
+    - click >=7.1,<8.0
+    - cython >=0.29.23,<0.30.0
+    - matplotlib >=3.3.4,<4.0.0
+    - numpy >=1.20.3,<2.0.0
+    - python
+    - scipy >=1.6.3,<2.0.0
+    - poetry
+
+test:
+  imports:
+    - oommfpy
+    - oommfpy.tools
+  commands:
+    - omf2vtk --help
+    - plot_omf --help
+
+about:
+  home: https://github.com/davidcortesortuno/oommfpy
+  license: BSD
+  license_family: BSD
+  license_file: 
+  summary: Minimal Python lib to process OOMMF format output files
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
