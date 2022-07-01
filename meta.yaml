@@ -14,7 +14,7 @@ build:
   entry_points:
     - omf2vtk = oommfpy.tools.omf2vtk:omf2vtk_cli
     - plot_omf = oommfpy.tools.plot_slices:plot_omf_slices_cli
-  script: "{{ PYTHON }} -m pip install . --no-deps --no-cache-dir --no-binary :all: --ignore-installed -vv :all: "
+  script: "{{ PYTHON }} -m pip install . --no-deps --no-cache-dir --ignore-installed -vv :all: "
 
 requirements:
   host:
