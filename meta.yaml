@@ -14,7 +14,7 @@ build:
   entry_points:
     - omf2vtk = oommfpy.tools.omf2vtk:omf2vtk_cli
     - plot_omf = oommfpy.tools.plot_slices:plot_omf_slices_cli
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: "{{ PYTHON }} -m pip install . --no-deps --no-chache-dir --no-binary --ignore-installed -vv :all: "
 
 requirements:
   host:
@@ -47,11 +47,11 @@ about:
   home: https://github.com/davidcortesortuno/oommfpy
   license: BSD
   license_family: BSD
-  license_file: 
+  license_file: LICENSE
   summary: Minimal Python lib to process OOMMF format output files
-  doc_url: 
-  dev_url: 
+  doc_url: https://github.com/davidcortesortuno/oommfpy
+  dev_url: https://github.com/davidcortesortuno/oommfpy
 
 extra:
   recipe-maintainers:
-    - your-github-id-here
+    - https://github.com/gb119
