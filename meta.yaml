@@ -10,11 +10,11 @@ source:
   sha256: fd338dd807097649b032ae3fb050f933bdbe5a04621be8fdfd2ae3083494e837
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - omf2vtk = oommfpy.tools.omf2vtk:omf2vtk_cli
     - plot_omf = oommfpy.tools.plot_slices:plot_omf_slices_cli
-  script: "{{ PYTHON }} -m pip install . --no-deps --no-cache-dir --ignore-installed -vv"
+  script: "{{ PYTHON }} -m pip install . --no-deps --no-cache-dir --ignore-installed --no-binary ':all:' -vv"
 
 requirements:
   host:
